@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>BMI Calculator</title>
+</head>
+<body>
+<h1>BMI Calculator</h1>
+
+<form action="#" th:action="@{/calculateBmi}" method="post">
+  <p>Weight: <input type="text" th:name="weight" /></p>
+  <p>Height: <input type="text" th:name="height" /></p>
+  <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>

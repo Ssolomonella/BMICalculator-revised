@@ -23,8 +23,8 @@ public class BmiCalculatorController {
 
     @PostMapping("/calculateBmi")
     public String calculateBmi(@RequestParam double weight, @RequestParam double height, Model model) {
-        double bmi = bmiCalculatorService.calculate(weight, height);
-        model.addAttribute("bmi", bmi);
+        String bmiResult = bmiCalculatorService.calculate(weight, height);
+        model.addAttribute("bmiResult", bmiResult);
         return "bmiResult";
     }
 }

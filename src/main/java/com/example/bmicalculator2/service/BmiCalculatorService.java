@@ -6,8 +6,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class BmiCalculatorService {
 
-    public double calculate(double weight, double height) {
-        // height is in meters and weight is in kg
-        return weight / (height * height);
+    public String calculate(double weight, double height) {
+        double bmi = weight / (height * height);
+
+        String bmiCategory;
+        if (bmi < 18.5) {
+            bmiCategory = "Underweight";
+        } else if (bmi < 24.9) {
+            bmiCategory = "Normal weight";
+        } else if (bmi < 29.9) {
+            bmiCategory = "Overweight";
+        } else {
+            bmiCategory = "Obese";
+        }
+
+        return "Your BMI is " + bmi + ", which is considered " + bmiCategory + ".";
     }
 }

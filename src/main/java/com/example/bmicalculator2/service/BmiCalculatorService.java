@@ -2,11 +2,13 @@ package com.example.bmicalculator2.service;
 
 
 import org.springframework.stereotype.Service;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class BmiCalculatorService {
 
-    public String calculate(double weight, double height) {
+    public Map<String, String> calculate(double weight, double height) {
         double bmi = weight / (height * height);
 
         String bmiCategory;
@@ -20,6 +22,10 @@ public class BmiCalculatorService {
             bmiCategory = "Obese";
         }
 
-        return "Your BMI is " + bmi + ", which is considered " + bmiCategory + ".";
+        Map<String, String> result = new HashMap<>();
+        result.put("bmi", String.format("%.2f", bmi));
+        result.put("category", bmiCategory);
+
+        return result;
     }
 }
